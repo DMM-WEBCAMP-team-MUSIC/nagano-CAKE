@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'genres/index'
     get 'genres/edit'
+    post 'genres/create'
   end
   namespace :admin do
     get 'items/index'
