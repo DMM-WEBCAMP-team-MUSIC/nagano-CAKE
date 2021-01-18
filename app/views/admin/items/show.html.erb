@@ -9,13 +9,18 @@
   商品説明：<%= @item.info %>
 </li>
 <li>
-  ジャンル：<%= @genre.name %>
+  ジャンル：<%= @item.genre.name %>
 </li>
 <li>
   税込価格（税抜き価格）：(<%= @item.price %>)
 </li>
 <li>
-  販売ステータス：<%= @item.status %>
+  販売ステータス：
+  <% if @item.status == true %>
+    販売中
+  <% else %>
+    販売停止中
+  <% end %>
 </li>
 
 <%= link_to "編集する", admin_items_edit_path %>
