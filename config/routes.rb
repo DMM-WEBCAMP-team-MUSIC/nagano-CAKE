@@ -4,8 +4,7 @@ Rails.application.routes.draw do
     get 'orders/show'
   end
   namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
+    resources :genres, only: [:index, :create, :edit, :update]
   end
   namespace :admin do
     get 'items/index'
