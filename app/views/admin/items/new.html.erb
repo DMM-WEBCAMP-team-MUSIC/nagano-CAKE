@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-sm-12 col-sm-8 col-lg-5 px-5 px-sm-0 mx-auto ">
       <h4>商品新規登録</h4>
-      <%= form_for @item do |f| %>
+      <%= form_with model: @item,url: admin_items_path, local: true do |f| %>
         <div class="from-group">
           <%= f.label :image, "商品画像" %>
-         
+          <%= f.attachment_field :image %>
         </div>
         <div class="form-group">
           <%= f.label :name, "商品名" %>
@@ -17,6 +17,7 @@
         </div>
         <div class="form-group">
           <%= f.label :genre_id, "ジャンル" %>
+          <%= f.collection_select(:name, @genres, :id, :name) %>
         </div>
         <div class="form-group">
           <%= f.label :price, "税抜価格" %>
@@ -25,9 +26,9 @@
         <div class="form-group">
           <%= f.label "販売ステータス" %>
           <%= f.label "販売中" %>
-          <%= f.radio_button :status, ["販売中"] %>
+          <%= f.radio_button :status, true %>
           <%= f.label "販売中停止中" %>
-          <%= f.radio_button :status, ["販売停止中"] %>
+          <%= f.radio_button :status, false %>
         </div>
         <div class="form-group">
           <%= f.submit "新規登録" %>
