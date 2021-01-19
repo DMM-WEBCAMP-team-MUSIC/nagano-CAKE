@@ -6,14 +6,15 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
   end
 
   def edit
   end
-  
+
   def create
   end
-  
+
   def update
   end
 end

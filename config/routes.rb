@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   namespace :admin do
     get 'orders/index'
     get 'orders/show'
@@ -48,5 +49,7 @@ Rails.application.routes.draw do
     get 'customers/edit'
     get 'customers/unsubscribe'
   end
+  
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
