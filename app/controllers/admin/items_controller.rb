@@ -3,6 +3,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find_by(id: params[:id])
+    @genre = @item.genre
   end
 
   def new
