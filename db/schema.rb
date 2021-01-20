@@ -32,7 +32,8 @@ ActiveRecord::Schema.define(version: 2021_01_18_053412) do
     t.string "first_name"
     t.string "family_name_kana"
     t.string "first_name_kana"
-    t.boolean "status"
+
+    t.boolean "status", default: true, null: false
     t.string "email"
     t.string "postal_code"
     t.string "address"
@@ -55,7 +56,8 @@ ActiveRecord::Schema.define(version: 2021_01_18_053412) do
     t.string "image_id"
     t.text "info"
     t.integer "price"
-    t.boolean "status"
+
+    t.boolean "status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,7 +67,8 @@ ActiveRecord::Schema.define(version: 2021_01_18_053412) do
     t.integer "order_id"
     t.integer "quantity"
     t.integer "price"
-    t.integer "status"
+
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,8 +80,9 @@ ActiveRecord::Schema.define(version: 2021_01_18_053412) do
     t.string "postal_code"
     t.string "address"
     t.integer "total_fee"
-    t.integer "payment"
-    t.integer "status"
+
+    t.integer "payment", default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
