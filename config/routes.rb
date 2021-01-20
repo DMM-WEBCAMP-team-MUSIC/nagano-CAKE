@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  devise_for :admins, controllers: {
+    sessions: "admins/sessions",
+    passwords: "admins/passwords",
+    registrations: "admins/registration"
+  }
+  devise_for :customers, controllers: {
+    sessions: "customers/sessions",
+    passwords: "customers/passwords",
+    registrations: "customers/registrations"
+  }
+  
+  get '/customers/sign_out' => 'devise/sessions#destroy'
+
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
