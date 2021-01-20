@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_050839) do
   create_table "items", force: :cascade do |t|
     t.integer "genre_id"
     t.string "name"
-    t.string "image"
+    t.string "image_id"
     t.text "info"
     t.integer "price"
     t.boolean "status"
