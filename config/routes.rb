@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     passwords: "customers/passwords",
     registrations: "customers/registrations"
   }
-
+  
+  get '/customers/sign_out' => 'devise/sessions#destroy'
 
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
