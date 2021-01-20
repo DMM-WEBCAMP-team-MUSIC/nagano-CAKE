@@ -12,7 +12,7 @@
   ジャンル：<%= @item.genre.name %>
 </li>
 <li>
-  税込価格（税抜き価格）：(<%= @item.price %>)
+  税込価格（税抜価格）：<%= (@item.price*1.1).floor %>（<%= @item.price %>）
 </li>
 <li>
   販売ステータス：
@@ -23,4 +23,4 @@
   <% end %>
 </li>
 
-<%= link_to "編集する", "admin_items_edit_path" %>
+<%= link_to "編集する", edit_admin_item_path %>
