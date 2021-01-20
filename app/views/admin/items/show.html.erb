@@ -12,7 +12,7 @@
   ジャンル：<%= @item.genre.name %>
 </li>
 <li>
-  税込価格（税抜価格）：<%= (@item.price*1.1).floor %>（<%= @item.price %>）
+  税込価格（税抜価格）：<%= (@item.price*1.1).floor.to_s(:delimited) %>（<%= @item.price.to_s(:delimited) %>）
 </li>
 <li>
   販売ステータス：
