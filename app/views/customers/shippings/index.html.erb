@@ -2,11 +2,11 @@
 
 <%= form_with model: @shipping, local: true do |f| %>
   <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
-  <%= f.text_field :postal_code %>
+  <%= f.text_field :postal_code %><br>
   <%= f.label :address, "住所" %>
-  <%= f.text_field :address %>
+  <%= f.text_field :address %><br>
   <%= f.label :name, "宛名" %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br>
   <%= f.submit "新規登録" %>
 <% end %>
 
@@ -32,7 +32,10 @@
         <%= shipping.name %>
       </td>
       <td>
-        <%= link_to "編集する", edit_shipping_path %>
+        <%= link_to "編集する", edit_shipping_path(shipping) %>
+      </td>
+      <td>
+        <%= link_to "削除する", shipping_path(shipping), method: :delete %>
       </td>
     </tr>
     <% end %>
