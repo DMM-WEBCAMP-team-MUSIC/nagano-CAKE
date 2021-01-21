@@ -1,8 +1,17 @@
 class Customers::CartItemsController < ApplicationController
+  
+  
+  
+  
+  
+  
   def index
+    @cart_items = current.cart_items
   end
   
-  def create
+  
+  def add_item
+    if @cart_item.blank
   end
   
   def all_destroy
@@ -13,4 +22,6 @@ class Customers::CartItemsController < ApplicationController
   
   def destroy
   end
+  
+  
 end
