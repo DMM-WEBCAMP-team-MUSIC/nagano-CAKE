@@ -13,4 +13,6 @@ class Customers::CartItemsController < ApplicationController
   
   def destroy
   end
+  
+  
 end
