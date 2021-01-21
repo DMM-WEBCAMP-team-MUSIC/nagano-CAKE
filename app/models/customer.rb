@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
   validates :family_name_kana, presence: true
   validates :first_name_kana, presence: true
   validates :postal_code, presence: true
-  validates :adress, presence: true
+  validates :address, presence: true
   validates :phone_number, presence: true
   validates :email, presence: true
 end
