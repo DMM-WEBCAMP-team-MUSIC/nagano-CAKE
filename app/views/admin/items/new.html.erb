@@ -6,46 +6,52 @@
   </div>
 </div>
 
-  <div class="row bg-light">
-    <div class="col-sm-6 mx-auto">
+  <div class="row justify-content-md-center bg-light">
+    <div class="col-md-6 bg-light">
       <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
         <div class="from-group">
-          <%= f.label :image, "商品画像" %>
-          <div class="col my-1">
-            <%= f.attachment_field :image,class: "image" %>
+          <div>
+            <%= f.label :image, "商品画像" %>
+          </div>
+          <div>
+            <%= f.attachment_field :image %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :name, "商品名" %>
+          <div>
+            <%= f.label :name, "商品名" %>
+          </div>
           <%= f.text_field :name,class: "form-control", :placeholder => "商品名" %>
         </div>
         <div class="form-group">
-          <%= f.label :info, "商品説明" %>
+          <div>
+            <%= f.label :info, "商品説明" %>
+          </div>
           <%= f.text_area :info,class: "form-control info", :placeholder => "ここに説明文を記述します" %>
         </div>
         <div class="form-group">
-          <%= f.label :genre_id, "ジャンル" %>
-          <div class="col">
-            <%= f.collection_select :genre_id, @genres, :id, :name %>
+          <div>
+            <%= f.label :genre_id, "ジャンル" %>
           </div>
+          <%= f.collection_select :genre_id, @genres, :id, :name %>
         </div>
         <div class="form-group">
-          <%= f.label :price, "税抜価格" %>
-          <div class="col">
-            <%= f.text_field :price %>円
+          <div>
+            <%= f.label :price, "税抜価格" %>
           </div>
+            <%= f.text_field :price %>円
         </div>
         <div class="form-group">
           <%= f.label "販売ステータス" %>
-          <div class="col">
+          <div>
             <%= f.radio_button :status, true %>
-            <%= f.label "販売中" %><br />
+            <%= f.label "販売中" %>
             <%= f.radio_button :status, false %>
             <%= f.label "販売中停止中" %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.submit "新規登録", class: "alert alert-dark" %>
+          <%= f.submit "新規登録", class: "btn btn-info" %>
         </div>
       <% end %>
     </div>
