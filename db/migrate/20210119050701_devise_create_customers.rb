@@ -8,7 +8,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :family_name_kana
       t.string :first_name_kana
-      t.boolean :status
+      t.boolean :status, null: false, default: true
       t.string :postal_code
       t.string :address
       t.string :phone_number

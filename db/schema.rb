@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_01_19_050839) do
 
   create_table "admins", force: :cascade do |t|
@@ -38,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_050839) do
     t.string "first_name"
     t.string "family_name_kana"
     t.string "first_name_kana"
-    t.boolean "status"
+    t.boolean "status", default: true, null: false
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
