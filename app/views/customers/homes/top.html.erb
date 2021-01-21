@@ -1,2 +1,14 @@
-<h1>Customers::Homes#top</h1>
-<p>Find me in app/views/customers/homes/top.html.erb</p>
+<h1>topページ</h1>
+<h2>
+  ようこそながのCAKEへ！
+</h2>
+
+<h3>新着商品</h3>
+
+<% @items.each do |item| %>
+<%= attachment_image_tag(item, :image, :fill, 100, 100,) %><br>
+<%= item.name %><br>
+¥<%= item.price.to_s(:delimited) %><br>
+<% end %>
+
+<%= link_to "全ての商品を見る>", items_path %>
