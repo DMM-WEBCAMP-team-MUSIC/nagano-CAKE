@@ -9,6 +9,7 @@
             <h4><%= number_to_currency((@item.price*1.1).floor, unit: "￥", precision: 0) %><small>(税込み)</small></h4>
             <%= form_with do |f| %>
                 <%= f.select :quantity, [[1,1],[2,2],[3,3]]%>
+                <%= f.text_area :price, value: @item.price %>
                 <%= f.submit %>
             <% end %>
         </div>
