@@ -1,2 +1,11 @@
-<h1>Customers::Shippings#edit</h1>
-<p>Find me in app/views/customers/shippings/edit.html.erb</p>
+<h1>配送先編集</h1>
+
+<%= form_with model: @shipping, local: true do |f| %>
+  <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+  <%= f.text_field :postal_code %>
+  <%= f.label :address, "住所" %>
+  <%= f.text_field :address %>
+  <%= f.label :name, "宛名" %>
+  <%= f.text_field :name %>
+  <%= f.submit "新規登録" %>
+<% end %>

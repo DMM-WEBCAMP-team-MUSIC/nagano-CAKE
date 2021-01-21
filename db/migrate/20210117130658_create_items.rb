@@ -3,10 +3,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
     create_table :items do |t|
       t.integer :genre_id
       t.string :name
-      t.string :image
+      t.string :image_id
       t.text :info
       t.integer :price
-      t.boolean :status
+      t.boolean :status, null: false,default: true
 
       t.timestamps
     end

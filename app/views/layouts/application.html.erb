@@ -4,10 +4,37 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" integrity="sha384-9/D4ECZvKMVEJ9Bhr3ZnUAF+Ahlagp1cyPC7h5yDlZdXs4DQ/vRftzfd+2uFUuqS" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header class="bg-light navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/">ながのCake</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav justify-content-end text-black">
+        <% if customer_signed_in? %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "マイページ" %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧" %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "カート" %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+        <% else %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "About" %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧" %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "新規登録", new_customer_registration_path %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "ログイン", new_customer_session_path %>
+        <% end %>
+      
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧",admin_items_path %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "会員一覧",admin_customers_path %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "注文履歴一覧",admin_orders_path %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "ジャンル一覧",admin_genres_path %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "ログアウト" %>
+      </ul>
+    </div>
+  </header>
 
   <body>
     <%= yield %>
