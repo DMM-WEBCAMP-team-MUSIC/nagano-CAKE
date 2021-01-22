@@ -36,6 +36,6 @@ Rails.application.routes.draw do
     post "ordered_items/confirm"
     get "ordered_items/finish"
   end
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

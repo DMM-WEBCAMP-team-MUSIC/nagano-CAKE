@@ -1,7 +1,19 @@
 class Customers::CartItemsController < ApplicationController
+  
+  
+  
+  
+  
+  
   def index
+    @cart_items = current.cart_items
   end
   
+  
+  def add_item
+    if @cart_item.blank
+    end
+  endfi
   def create
     item = CartItem.new(cart_item_params)
     item.customer_id = current_customer.id
@@ -20,6 +32,7 @@ class Customers::CartItemsController < ApplicationController
   
   def destroy
   end
+  
   
   private
   def cart_item_params
