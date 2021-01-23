@@ -14,3 +14,22 @@
  *= require_self
  */
 @import "bootstrap";
+
+u {
+	font-family: impact;
+}
+
+
+
+.about-image {
+	height: 400px;
+	background-image: url(CAKE.jpg);
+	background-repeat: no-repeat;
+	
+}
+.about-image p {
+	font-size: 25px;
+	padding-top: 20px;
+	color: white;
+	font-family: Hiragino Mincho Pro;
+}

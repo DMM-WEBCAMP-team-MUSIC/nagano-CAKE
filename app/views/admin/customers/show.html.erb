@@ -31,7 +31,13 @@
     </tr>
     <tr>
       <td>会員ステータス</td>
-      <td><%= @customer.status %></td>
+      <td> 
+           <% if @customer.status == true %>
+             有効
+           <% else %> 
+           　退会
+           <% end %>
+      </td>
     </tr>
   </table>
   <%= link_to "編集する", edit_admin_customer_path(@customer) %>

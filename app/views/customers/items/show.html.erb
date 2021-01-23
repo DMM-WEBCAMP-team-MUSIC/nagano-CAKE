@@ -1,20 +1,24 @@
-<div class="container">
-    <div class="row">
-        <div class="col-5">
-            <%= attachment_image_tag(@item, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
-        </div>
-        <div class="col-7">
-            <h3><%= @item.name %></h3>
-            <p><%= @item.info %></p>
-            <h4><%= number_to_currency((@item.price*1.1).floor, unit: "￥", precision: 0) %><small>(税込み)</small></h4>
-            <%= form_with model:@cart_item, local: true do |f| %>
-                <%= f.select :quantity, [[1,1],[2,2],[3,3],[4,4],[5,5]]%>
-                <%= f.hidden_field :item_id, value: @item.id %>
-                <%= f.submit %>
-            <% end %>
+<div class="container mt-5 mx-auto">
+  <div class="card mb-3" style="max-width: 900px">
+    <div class="row p-5 no-gutters">
+      <div class="col-md-4">
+        <img class="card-img"><%= attachment_image_tag(@item, :image, :fill, 300, 300, fallback: "no_image.jpg") %>
+      </div>
+      <div class="col-md-8 pl-5">
+        <div class="card-body">
+          <h4 class="card-title text-center"><%= @item.name %></h4>
+          <p><%= @item.info %></p>
+          <%= form_with do |f| %>
+          <!-- form_withに　@cart_item　が入ります（多分）　-->
+            <strong><%= (@item.price * 1.1).floor %>円 (税込)</strong>
+            <div class="text-right">
+              <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
+            </div><br />
+            <div class="text-right">
+              <%= f.submit "カートに入れる", class: "btn btn-outline-info" %>
+            </div>
+          <% end %>
         </div>
     </div>
-    <div>
-
-    </div>
+  </div>
 </div>
