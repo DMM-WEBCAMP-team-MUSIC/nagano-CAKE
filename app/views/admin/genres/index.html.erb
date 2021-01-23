@@ -8,13 +8,10 @@
 <div class="container">
 <div class="row">
   <div class="col-sm-1"></div>
-    ジャンル名
-    <div class="col-sm-1"></div>
-    <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
-      <%= f.text_field :name, :placeholder => "ジャンル名" %>
-      <%= f.submit "新規登録",class: "btn btn-info" %>
+  <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
+    <%= f.text_field :name, :placeholder => "ジャンル名" %>
+    <%= f.submit "新規登録",class: "btn btn-info" %>
     <% end %>
-  </div>
 </div><br />
 
 <div class="container">
@@ -34,5 +31,5 @@
     </div>
   </div>
 </div>
-  
+
 
