@@ -6,14 +6,15 @@ class Customers::CartItemsController < ApplicationController
   
   
   def index
-    @cart_items = current.cart_items
+    @cart_items = current_customer.cart_items
   end
   
   
   def add_item
     if @cart_item.blank
     end
-  endfi
+  end
+  
   def create
     item = CartItem.new(cart_item_params)
     item.customer_id = current_customer.id
