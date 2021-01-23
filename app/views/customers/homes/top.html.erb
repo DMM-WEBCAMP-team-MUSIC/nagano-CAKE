@@ -1,14 +1,29 @@
-<h1>topページ</h1>
-<h2>
-  ようこそながのCAKEへ！
-</h2>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>welcome！</h1><mark class="h3">「ながのCAKE」</mark>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 mb-4 text-center">
+    <u class="h2">新着商品</u>
+  </div>
+</div>
+<div class="row pt-5 pb-5 justify-content-md-center bg-light">
+  <div class="col-sm-1 "></div>
+    <% @items.each do |item| %>
+      <div class="card mr-5" style="width: 15rem">
+        <%= attachment_image_tag(item, :image, :fill, 200, 200,) %>
+        <div class="card-body">
+          <p class="card-title"><%= item.name %></p>
+          ¥<%= item.price.to_s(:delimited) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<h3>新着商品</h3>
-
-<% @items.each do |item| %>
-<%= attachment_image_tag(item, :image, :fill, 100, 100,) %><br>
-<%= item.name %><br>
-¥<%= item.price.to_s(:delimited) %><br>
-<% end %>
-
-<%= link_to "全ての商品を見る>", items_path %>
+<div class="col mt-4 text-right">
+<%= link_to "全ての商品を見る>>", items_path, class: "alert alert-light" %>
+</div>
