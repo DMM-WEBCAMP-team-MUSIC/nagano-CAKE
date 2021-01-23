@@ -1,7 +1,7 @@
 <h3>ログイン</h3>
 <h6>会員の方はこちらからログイン</h6>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
+
 <table>
   <tr>
     <td><%= f.label :メールアドレス %><br /></td>
@@ -16,8 +16,7 @@
     <td><%= f.submit "ログイン" %></td>
   </tr>
 </table>
-
-<h3>会員登録がお済みでない方</h3>
 <% end %>
+<h3>会員登録がお済みでない方</h3>
 
 <%= render "customers/shared/links" %>
