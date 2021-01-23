@@ -8,11 +8,11 @@
         <div class="card-body">
           <h4 class="card-title text-center"><%= @item.name %></h4>
           <p><%= @item.info %></p>
-          <%= form_with do |f| %>
-          <!-- form_withに　@cart_item　が入ります（多分）　-->
+          <%= form_with model:@cart_item, local: true do |f| %>
             <strong><%= (@item.price * 1.1).floor %>円 (税込)</strong>
             <div class="text-right">
-              <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
+              <%= f.number_field :quantity, min:1, max:10, placeholder: "個数選択" %><span>個</span>
+              <%= f.hidden_field :item_id, value: @item.id %>
             </div><br />
             <div class="text-right">
               <%= f.submit "カートに入れる", class: "btn btn-outline-info" %>
