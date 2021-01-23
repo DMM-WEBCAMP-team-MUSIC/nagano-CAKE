@@ -1,16 +1,15 @@
 class Customers::CustomersController < ApplicationController
   def show
-   @customer = Customer.where(params[:id])
-   @customers = Customer.all
+   @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+   @customer = current_customer
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    if @customer.update(customer_params)
+    @customer = current_customer
+    if @customer.save(customer_params)
       redirect_to customers_path
     end
   end
