@@ -6,12 +6,23 @@ class Customers::CartItemsController < ApplicationController
   
   
   def index
-    @cart_items = current.cart_items
+    @cart_items = current_customer.cart_items
   end
   
   
   def add_item
     if @cart_item.blank
+    end
+  end
+  
+  def create
+    item = CartItem.new(cart_item_params)
+    item.customer_id = current_customer.id
+    if item.save
+      redirect_to cart_items_path
+    else
+      
+    end
   end
   
   def all_destroy
@@ -24,4 +35,8 @@ class Customers::CartItemsController < ApplicationController
   end
   
   
+  private
+  def cart_item_params
+    params.require(:cart_item).permit(:quantity, :item_id)
+  end
 end
