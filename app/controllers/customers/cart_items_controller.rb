@@ -26,6 +26,9 @@ class Customers::CartItemsController < ApplicationController
   end
   
   def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.quantity = cart_item_params[:quantity]
+    @cart_item.save
   end
   
   def destroy
