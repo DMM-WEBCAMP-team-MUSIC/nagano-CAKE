@@ -1,16 +1,21 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>welcome！</h1><mark class="h3">「ながのCAKE」</mark>
+  <div class="row justify-content-md-center">
+    <div class="col md-8 m-4 text-center">
+      <div class="top-image pt-4">
+        <strong>ようこそ！ながのCAKEへ！</strong>
+        <p>このサイトは、ケーキ販売のECサイトになります。</p>
+        <p>会員でない⽅も商品の閲覧はできますが、</p>
+        <p>購⼊には会員登録が必要になります。</p>
+      </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12 mb-4 text-center">
+  <div class="col-sm-12 mb-4 text-center text-danger">
     <u class="h2">新着商品</u>
   </div>
 </div>
-<div class="row pt-5 pb-5 justify-content-md-center bg-light">
+<div class="row pt-5 pb-5 justify-content-md-center">
   <div class="col-sm-1 "></div>
     <% @items.each do |item| %>
       <div class="card mr-5" style="width: 15rem">
