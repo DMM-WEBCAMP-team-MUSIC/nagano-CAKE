@@ -1,6 +1,10 @@
 <div>
   <h4><%= @customer.family_name %><%= @customer.first_name %>さんの会員編集<h4>
+
     <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
+
+
+
     <table>
       
     <tr>
