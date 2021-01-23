@@ -1,8 +1,8 @@
 <div>
   <h4><%= @customer.family_name %><%= @customer.first_name %>さんの会員編集<h4>
-    
+    <%= form_with model: @customer, url: admin_customer_path, local: false do |f| %>
     <table>
-      <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
+      
     <tr>
       <td>会員ID</td>
       <td><%= @customer.id %><td/>

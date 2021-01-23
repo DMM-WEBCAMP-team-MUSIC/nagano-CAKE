@@ -10,10 +10,7 @@ class Customers::CartItemsController < ApplicationController
   end
   
   
-  def add_item
-    if @cart_item.blank
-    end
-  end
+  
   
   def create
     item = CartItem.new(cart_item_params)
