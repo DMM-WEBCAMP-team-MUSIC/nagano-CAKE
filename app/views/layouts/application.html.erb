@@ -18,8 +18,8 @@
 
 
         <% if customer_signed_in? %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "マイページ", customers_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧" %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "マイページ",customers_path%>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧",items_path %>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "カート" %>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
         <% elsif admin_signed_in? %>
@@ -30,7 +30,7 @@
         <li class= "fas fa-horse","nav-item"></li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         <% else %>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "About",about_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧" %>
+        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧" ,items_path%>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "新規登録", new_customer_registration_path %>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "ログイン", new_customer_session_path %>
         <% end %>

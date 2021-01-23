@@ -1,17 +1,16 @@
 <div class="container my-3">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-3">
       <h4>商品詳細ページ</h4>
     </div>
   </div>
 </div>
-<div class="row mt-3 bg-light">
+<div class="row mt-3">
   <div class="offset-sm-1 col-am-3">
     <%= attachment_image_tag(@item, :image, :fill, 300, 300, fallback: "no_image.jpg") %>
   </div>
-  <div class="col-sm-8 bg-light">
+  <div class="col-sm-6 bg-light">
     <table class="table">
-      <tbody>
         <tr>
           <td>商品名</td>
           <td><%= @item.name %></td>
@@ -38,7 +37,7 @@
             <% end %>
           </td>
         </tr>
-      </tbody>
+    
     </table>
     <%= link_to "編集する", edit_admin_item_path, class: "btn btn-dark" %>
   </div>
