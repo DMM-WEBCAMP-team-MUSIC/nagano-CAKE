@@ -9,8 +9,10 @@ class Customers::CustomersController < ApplicationController
 
   def update
     @customer = current_customer
-    if @customer.save(customer_params)
+    if @customer.update(customer_params)
       redirect_to customers_path
+    else
+      render 'edit'
     end
   end
 
