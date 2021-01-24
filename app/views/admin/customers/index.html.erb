@@ -10,10 +10,15 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.id %></td>
-        <td><%= customer.family_name %><%= customer.first_name %></td>
+        <td><%= link_to customer.family_name %><%= customer.first_name %></td>
         <td><%= customer.email %></td>
-        <td><%= customer.status %></td>
+        <% if customer.status == true %>
+          <td class= "text-danger"><%= customer.status %></td>
+        <% else customer.status == false %>
+          <td><%= customer.status %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>
+  <%= paginate @customers %>
 </div>

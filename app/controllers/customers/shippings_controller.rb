@@ -1,5 +1,4 @@
 class Customers::ShippingsController < ApplicationController
-  
   def index
     @shippings = current_customer.shippings
     @shipping = Shipping.new
