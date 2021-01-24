@@ -1,6 +1,8 @@
 <h2>ショッピングカート</h2>
 <!--カートを空にする-->
-<div></div>
+<div>
+  <%= link_to "カートを空にする", cart_items_all_destroy_path, method: :delete %>
+</div>
 
 <!--カート商品一覧-->
 <table>
@@ -14,6 +16,7 @@
      </tr>
   </thead>
   <tbody>
+    <% @sum = 0 %>
     <% @cart_items.each do |cart_item| %>
      <tr>
          <td><%= attachment_image_tag(cart_item.item, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
@@ -32,8 +35,23 @@
              <%= ((cart_item.item.price*1.1).floor*cart_item.quantity).to_s(:delimited) %>
 
          </td>
-         <td></td>
+         <td>
+           <%= link_to "削除する", cart_item_path(cart_item), method: :delete %>
+         </td>
      </tr>
+     <% @sum += (cart_item.item.price*1.1).floor*cart_item.quantity %>
      <% end %>
   </tbody>
 </table>
+
+<div>
+  <%= link_to "買い物を続ける",root_path %>
+</div>
+
+<div>
+   合計金額<%= @sum.to_s(:delimited) %>  
+</div>
+
+<div>
+  <%= link_to"情報入力に進む",new_ordered_item_path %>
+</div>
