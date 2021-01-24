@@ -15,4 +15,12 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :email, presence: true
+  
+  def total_payment
+    total = 0
+    self.cart_items.each do |cart_item|
+      total = total + cart_item.quantity * cart_item.price
+    end
+    return total
+  end
 end
