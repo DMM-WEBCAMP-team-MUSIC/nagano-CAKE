@@ -15,6 +15,11 @@ class Customers::CustomersController < ApplicationController
   end
 
   def withdraw
+    customer = current_customer
+    customer.status = false
+    if customer.save
+      redirect_to root_path
+    end
   end
 
   def unsubscribe
