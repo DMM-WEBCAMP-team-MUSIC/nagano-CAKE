@@ -22,6 +22,7 @@
         <li class= "fas fa-horse","nav-item"></li><%= link_to "マイページ", customers_path %>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧", items_path %>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "カート", cart_items_path %>
+
         <li class= "fas fa-horse","nav-item"></li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
         <% elsif admin_signed_in? %>
         <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧", admin_items_path %>
