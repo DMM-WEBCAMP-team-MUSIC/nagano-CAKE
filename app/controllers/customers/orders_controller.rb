@@ -23,9 +23,9 @@ class Customers::OrdersController < ApplicationController
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
     elsif new_order_params[:radio_address] == "registered_address"
-      @order.name = 
-      @order.postal_code = 
-      @order.address = 
+      #@order.name = 
+      #@order.postal_code = 
+      #@order.address = 
     elsif new_order_params[:radio_address] == "new_address"
       @order.name = new_order_params[:new_name]
       @order.postal_code = new_order_params[:new_postal_code]
