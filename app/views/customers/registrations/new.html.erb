@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-sm-2 pt-4">
@@ -6,56 +5,120 @@
     </div>
   </div>
 </div>
-<div class="row justify-content-md-center">
-  <div class="col-md-8 bg-light">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="field">
-          <%= f.label :名前 %>
-          <%= f.label :"(姓)" %><%= f.text_field :family_name, autofocus: true, placeholder:"令和" %>
-          <%= f.label :"(名)" %><%= f.text_field :first_name, placeholder:"道子" %>
-        </div>
-        <div class="field">
-          <%= f.label :フリガナ %>
-          <%= f.label :"(セイ)" %><%= f.text_field :family_name_kana, placeholder:"レイワ" %>
-          <%= f.label :"(メイ)" %><%= f.text_field :first_name_kana, placeholder:"ミチコ" %>
-        </div>
-        <div class="field">
-          <%= f.label :メールアドレス %>
-          <%= f.email_field :email, placeholder:"sample@example.com" %>
-        </div>
-        <div class="field">
-          <%= f.label :"郵便番号(ハイフンなし))" %>
-          <%= f.text_field :postal_code, placeholder:"0000000" %>
-        </div>
-        <div class="field">
-          <%= f.label :"住所" %>
-          <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0", :size => "40*40" %>
-        </div>
-        <div class="field">
-          <%= f.label :"電話番号(ハイフンなし)" %>
-          <%= f.text_field :phone_number, placeholder:"0000000000" %>
-        </div>
-        <div class="field">
-          <%= f.label :"パスワード(6文字以上)" %>
-          <% if @minimum_password_length %>
-          <% end %>
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-        <div class="field">
-          <%= f.label :"パスワード(確認用)" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-        <div class="field">
-          <%= f.submit "新規登録" %>
-        </div>
-    <% end %>
-  </div>
+<div class="container bg-light">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row pt-4">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :名前 %>
+      </div>
+      <div class="col-1">
+        <%= f.label "（姓）"%>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :family_name, placeholder:"令和", class: "form-control-sm" %>
+      </div>
+      <div class="col-1">
+        <%= f.label "（名）"%>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :first_name, placeholder:"道子", class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :フリガナ %>
+      </div>
+      <div class="col-1">
+        <%= f.label "（セイ）"%>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :family_name_kana, placeholder:"レイワ",class: "form-control-sm" %>
+      </div>
+      <div class="col-1">
+        <%= f.label "（メイ）"%>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :first_name_kana, placeholder:"ミチコ",class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :メールアドレス %>
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-3">
+        <%= f.email_field :email, placeholder:"sample@example.com",class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :"郵便番号(ハイフンなし)" %>
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-3">
+        <%= f.text_field :postal_code, placeholder:"0000000",class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :"住所" %>
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-3">
+        <%= f.text_field :address, placeholder:"群馬県吾妻郡草津町草津28", class: "form-control-sm", :size => "50*40" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :"電話番号(ハイフンなし)" %>
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-3">
+        <%= f.text_field :phone_number, placeholder:"0000000000",class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :"パスワード(6文字以上)" %>
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-3">
+        <% if @minimum_password_length %>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password",class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3 offset-1 text-left">
+        <%= f.label :"パスワード(確認用)" %>
+      </div>
+      <div class="col-1">
+      </div>
+      <div class="col-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row mt-2 pb-2">
+      <div class="col-12 text-right">
+        <%= f.submit "会員登録",class: "alert alert-danger" %>
+      </div>
+    </div>
+  <% end %>
 </div>
-<div class="col-sm-2 pt-5r">
-  <h4 class="text-right">既に登録済みの方</h4>
-  <div class="col-sm-8 pt-5 bg-light">
-    <%= render "devise/shared/links" %>
-    <sirong class="h5">からログインしてください。</sirong>
+<div class="row mt-5">
+  <div class="col-7 text-white text-right">
+    <h5>既に御登録済みのお客様</h5>
+  </div>
+  <div class="col-1 text-right">
+    <%= link_to "ログイン",new_customer_session_path, class: "btn btn-dark" %>
+  </div>
+  <div class="col-4 text-white">
+    <h5>からログインをお願い致します。</h5>
   </div>
 </div>
