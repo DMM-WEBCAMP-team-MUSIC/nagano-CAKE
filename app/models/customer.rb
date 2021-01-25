@@ -17,10 +17,10 @@ class Customer < ApplicationRecord
   validates :email, presence: true
   
   def total_payment
-    total = 0
-    self.cart_items.each do |cart_item|
-      total = total + cart_item.quantity * cart_item.price
+    total = 0 #totalは最初は0円
+    self.cart_items.each do |cart_item| #全商品繰り返し
+      total = total + cart_item.quantity * cart_item.item.price * 1.1 #totalに、quantityとpriceと消費税をかけた額を足す
     end
-    return total
+    return total #こう書くことでcustomer.totalpaymentを呼ぶと、結果的に上の処理がされたtotalが呼べる
   end
 end

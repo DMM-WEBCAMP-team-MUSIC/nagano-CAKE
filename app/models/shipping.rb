@@ -6,6 +6,6 @@ class Shipping < ApplicationRecord
   validates :name, presence: true
   
   def link_shipping
-    "〒" + self.postal_code	+ " " + self.address + " " + self.name
+    "〒" + self.postal_code	+ " " + self.address + " " + self.name #文字列同士の連結とスペースで間隔調整
   end
 end
