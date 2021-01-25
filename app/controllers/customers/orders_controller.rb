@@ -12,6 +12,7 @@ class Customers::OrdersController < ApplicationController
   end
   
   def confirm
+    @new_order = Order.new
     @order = Order.new #Orderモデルから@order作成
     @order.customer_id = current_customer.id #@orderのcustomerカラムに、ログインしているcustomerのidを代入
     @order.delivery_fee = 800 #同上
@@ -34,7 +35,24 @@ class Customers::OrdersController < ApplicationController
   end
   
   def create
-
+    order = Order.new(order_params)
+    order.customer_id = current_customer.id
+    if order.save
+    end
+    
+    if current_customer.cart_items.each do |cart_item|
+        ordered_item = OrderedItem.new
+        ordered_item.item_id = cart_item.item_id
+        ordered_item.order_id = order.id
+        ordered_item.quantity = cart_item.quantity
+        ordered_item.price = cart_item.item.price
+        ordered_item.save
+      end
+    end
+    
+    current_customer.cart_items.destroy_all
+    
+    redirect_to orders_finish_path
   end
   
   def finish
