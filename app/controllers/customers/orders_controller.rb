@@ -5,6 +5,9 @@ class Customers::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find_by(id: params[:id])
+    @order.customer_id = current_customer.id
+    @cart_items = current_customer.cart_items
   end
   
   def new
