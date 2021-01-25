@@ -5,19 +5,12 @@ class Customers::CartItemsController < ApplicationController
   end
   
   def create
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    @cart_item_add = CartItem.find_by(item: @cart_item.item)
-    if @cart_item_add.present?
-      @cart_item.quantity += @cart_item_add.quantity
-      @cart_item_add.destroy
-    end
-    if @cart_item.save
+    item = CartItem.new(cart_item_params)
+    item.customer_id = current_customer.id
+    if item.save
       redirect_to cart_items_path
     else
-      @item = Item.find(params[:id])
-      @cart_item = CartItem.new
-      render "customers/items/show"
+
     end
   end
 
@@ -25,6 +18,8 @@ class Customers::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items
     @cart_items.destroy_all
     redirect_to cart_items_path
+    
+  
   end
 
   def update
