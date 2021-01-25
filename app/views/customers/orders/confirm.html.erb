@@ -1,0 +1,47 @@
+<div class="container">
+  <div>
+    <h1>注文情報確認</h1>
+  </div>
+  <div class="row">
+    <table class="table col-6">
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+      </tr>
+      <% current_customer.cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.price * 1.1 %></td>
+          <td><%= cart_item.quantity %></td>
+          <td><%= cart_item.quantity * cart_item.item.price * 1.1 %></td>
+        </tr>
+      <% end %>
+    </table class="table col-4">
+    <table>
+      <tr>
+        <th>送料</th>
+        <td><%= @order.delivery_fee %></td>
+      </tr>
+      <tr>
+        <th>商品合計</th>
+        <td><%= @order.customer.total_payment%></td>
+      </tr>
+      <tr>
+        <th>請求金額</th>
+        <td></td>
+      </tr>
+    </table>
+    
+  </div>
+  <div>
+    <h4>支払方法</h4>
+    <p><%= @order.payment %></p>
+  </div>
+  <div>
+    <h4>お届け先</h4>
+    <p><%= @order.link_address %></p> <!-- link_addressはordersモデル内で定義したメソッド。呼び出すと住所を連結して返す -->
+    <p><%= @order.name %></p>
+  </div>
+</div>

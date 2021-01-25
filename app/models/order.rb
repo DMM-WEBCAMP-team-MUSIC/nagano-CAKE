@@ -6,4 +6,8 @@ class Order < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :name, presence: true
+  
+  def link_address
+    "〒" + self.postal_code	+ " " + self.address
+  end
 end
