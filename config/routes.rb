@@ -28,13 +28,13 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "about" => "homes#about"
     resources :items, only: [:index, :show]
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show, :new, :create]
+    post "orders/confirm"
+    get "orders/finish"
     resources :shippings, only: [:index, :create, :edit, :update, :destroy]
     delete "cart_items/all_destroy"
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    resources :ordered_items, only: [:index, :new, :show, :create]
-    post "ordered_items/confirm"
-    get "ordered_items/finish"
+    resources :ordered_items, only: [:index, :show]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
