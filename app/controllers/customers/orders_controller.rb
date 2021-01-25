@@ -12,6 +12,9 @@ class Customers::OrdersController < ApplicationController
   end
   
   def confirm
+    if !new_order_params[:payment]
+      redirect_to new_order_path
+    end
     @new_order = Order.new
     @order = Order.new #Orderモデルから@order作成
     @order.customer_id = current_customer.id #@orderのcustomerカラムに、ログインしているcustomerのidを代入
