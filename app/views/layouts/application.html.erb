@@ -14,32 +14,30 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav justify-content-end text-light">
+      <ul class="navbar-nav justify-content-end mr-5">
 
 
         <% if customer_signed_in? %>
-        <li class= "fas fa-horse","nav-item"></li><p>ようこそ、<%= current_customer.family_name %>さん！</p>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "マイページ", customers_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧", items_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "カート", cart_items_path %>
-
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+        <li class= "nav-item"></li><h5 class="text-dark pt-3">ようこそ、<%= current_customer.family_name %>さん！</h5>
+        <li class= "nav-item"></li><%= link_to "マイページ", customers_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "商品一覧", items_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "カート", cart_items_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "ログアウト", destroy_customer_session_path,class: "alert alert-gray", method: :delete %>
         <% elsif admin_signed_in? %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧", admin_items_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "会員一覧", admin_customers_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "注文履歴一覧", admin_orders_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "ジャンル一覧", admin_genres_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+        <li class= "nav-item"></li><%= link_to "商品一覧", admin_items_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "会員一覧", admin_customers_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "注文履歴一覧", admin_orders_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "ジャンル一覧", admin_genres_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "ログアウト", destroy_admin_session_path, class: "alert alert-gray", method: :delete %>
         <% else %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "About", about_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "商品一覧", items_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "新規登録", new_customer_registration_path %>
-        <li class= "fas fa-horse","nav-item"></li><%= link_to "ログイン", new_customer_session_path %>
+        <li class= "nav-item"></li><%= link_to "About", about_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "商品一覧", items_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "新規登録", new_customer_registration_path, class: "alert alert-gray" %>
+        <li class= "nav-item"></li><%= link_to "ログイン", new_customer_session_path, class: "alert alert-gray" %>
         <% end %>
       </ul>
     </div>
   </header>
-
   <body>
     <%= yield %>
   </body>

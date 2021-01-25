@@ -54,6 +54,7 @@ body {
 	background-image: url(CAKE2.jpg);
 	height: 400px;
 	background-repeat: no-repeat;
+	border-radius: 30%;
 }
 
 .top-image strong {
@@ -84,12 +85,14 @@ body {
 	font-family: Hiragino Mincho Pro;
 }
 
-header {
+.navbar-brand {
 	background-image: url(header.jpg);
-	background-repeat: no-repeat;
-	border-radius: 70%;
+	border-radius: 50%; /*画像を丸くsuru*/
+	color: white;
+	font-family: 'Sacramento', cursive;
+	font-size: 30px;
 }
 
-.navbar-brand {
-	font-family: 'Caveat', cursive;
+.navbar-brand:hover {
+  opacity: .5;
 }
