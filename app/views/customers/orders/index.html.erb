@@ -20,7 +20,7 @@
           <%= order.name %>
       </td>
       <td><% order.ordered_items.each do |ordered_item| %>
-            <%= ordered_item.item.name %><br>orderd
+            <%= ordered_item.item.name %><br>
           <% end %>
       </td>
       <td><%= order.total_fee.to_s(:delimited) %></td>
