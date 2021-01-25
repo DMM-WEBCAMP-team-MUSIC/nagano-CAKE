@@ -55,7 +55,7 @@
       <td>
           <%= ordered_item.item.name %><br>
       </td>
-      <td><%= (ordered_item.item.price*1.1).floor.to_s(:delimited) %></td>
+      <td><%= (ordered_item.price*1.1).floor.to_s(:delimited) %></td>
       <td><%= ordered_item.quantity %></td>
       <td><%= ((ordered_item.item.price*1.1).floor*ordered_item.quantity).to_s(:delimited) %></td>
     </tr>
