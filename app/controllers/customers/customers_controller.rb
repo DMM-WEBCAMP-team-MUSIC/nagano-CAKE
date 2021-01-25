@@ -20,6 +20,7 @@ class Customers::CustomersController < ApplicationController
     customer = current_customer
     customer.status = false
     if customer.save
+      reset_session
       redirect_to root_path
     end
   end

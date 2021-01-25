@@ -10,7 +10,7 @@
       <label><%= f.radio_button :payment, "振込"%>銀行振込</label>
       <h2>お届け先</h2>
       <div>
-        <label><%= f.radio_button :radio_address, "own_address" %>ご自身の住所</label><br>
+        <label><%= f.radio_button :radio_address, "own_address", {:checked => true} %>ご自身の住所</label><br>
         <ul>
           <li>
             〒<%= current_customer.postal_code %> <%= current_customer.address %><br>
