@@ -1,5 +1,5 @@
 class Customers::OrderedItemsController < ApplicationController
-  
+
   def index
   end
 
@@ -8,11 +8,11 @@ class Customers::OrderedItemsController < ApplicationController
 
   def finish
   end
-  
+
   def confirm
   end
-  
+
   def create
   end
-  
+
 end

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="">
+    <div class="col">
       <h4>注文履歴詳細</h4>
     </div>
   </div>
@@ -17,8 +17,7 @@
     </tr>
     <tr class="">
       <th>配送先</th>
-      <td><%= @shipping.shipping.postal_code + @shipping.customer.address %></td><br>
-      <td><%= @shipping.shipping.name %></td>
+      <td><%= @order.link_address %><br><%= @order.name %></td>
     </tr>
     <tr class="">
       <th>支払方法</th>
@@ -26,5 +25,41 @@
     </tr>
     <tr class="">
       <th>注文ステータス</th>
-      <td><%= @order.collection_select :status, @status, :id, %> </td>
+      <%= form_with model: @order, url:admin_order_path, local: true do |f| %>
+      <td><%= f.select :status, Order.statuses.keys %></td> <!--モデル名.カラム名複数形.keys-->
+      <td><%= f.submit "更新" %></td>
+      <% end %>
+      <td></td>
     </tr>
+  </table>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+  </div>
+</div>
+  <table class="table">
+    <tr class="">
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>制作ステータス</th>
+    </tr>
+    <% @ordered_items.each do |order| %>
+    <tr>
+      <td><%= order.item.name %></td>
+      <td><%= (order.price*1.1).floor.to_s(:delimited) %></td>
+      <td><%= order.quantity %></td>
+      <td><%= ((order.price*1.1).floor*order.quantity).to_s(:delimited) %></td>
+      <%= form_with model: order, url:admin_ordered_item_path(order), method: :patch, local: true do |f| %>
+      <td><%= f.select :status, OrderedItem.statuses.keys %></td>
+      <td><%= f.submit "更新" %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
