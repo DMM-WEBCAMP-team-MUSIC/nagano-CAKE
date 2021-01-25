@@ -19,11 +19,11 @@
           <%= order.address %>
           <%= order.name %>
       </td>
-      <td><% order.orderd_items.each do |orderd_item| %>
-            <%= orderd_item.name %><br>
+      <td><% order.ordered_items.each do |ordered_item| %>
+            <%= ordered_item.item.name %><br>orderd
           <% end %>
       </td>
-      <td>支払い金額</td>
+      <td><%= order.total_fee %></td>
       <td><%= order.status %></td>
       <td><%= link_to "表示する", order_path(order) %></td>
     </tr>
