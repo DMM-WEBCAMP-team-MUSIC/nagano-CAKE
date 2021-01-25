@@ -16,12 +16,12 @@
 @import "bootstrap";
 
 u {
+	color: white;
 	font-family: impact;
 }
 
 h4 {
-	color: white;
-	background-color: #444444;
+	color: #C2EEFF;
 	text-align: center;
 	font-family: Hiragino Mincho Pro;
 }
@@ -44,31 +44,42 @@ body {
 	background-image: url(森2.jpg);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	background-size: contain;
-	width: 100%;
-	height: 960px;
+	display: block;
+  	height: auto;
+  	max-width: 100%;
 	/*background-attachment: fixed;　スクロールしても画像を固定*/
 }
 
 .top-image {
+	background-image: url(CAKE2.jpg);
 	height: 400px;
 	background-repeat: no-repeat;
 }
 
 .top-image strong {
 	font-size: 60px;
-	color: white;
+	color: maroon;
 	font-family: Hiragino Mincho Pro;
 }
 
 .top-image p {
 	padding: 20px 0;
 	font-size: 30px;
-	color: white;
+	color: maroon;
 	font-family: Hiragino Mincho Pro;
 }
 
 .edit-image {
 	background-image: url(新聞.jpg);
+	font-family: Hiragino Mincho Pro;
+}
+.customer-image {
+	background-image: url(新聞.jpg);
+	font-family: Hiragino Mincho Pro;
+}
+
+.out-image {
+	background-image: url(CAKE3crush.jpg);
+	background-repeat: no-repeat;
 	font-family: Hiragino Mincho Pro;
 }
