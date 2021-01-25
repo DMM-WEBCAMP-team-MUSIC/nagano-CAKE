@@ -15,18 +15,18 @@
     </tr>
     <% @orders.each do |order| %>
     <tr>
-      <td><%= order.created_at %></td>
+      <td><%= link_to order.created_at, admin_order_path(order) %></td>
       <td><%= order.customer.family_name + order.customer.first_name %></td>
-      <td><%= order.count %></td>
-      <% if order.status == 0 %>
+      <td><%= order.ordered_items.count %></td>
+      <% if order.status == "入金待ち" %>
         <td><%= order.status %></td>
-      <% elsif order.status == 1 %>
+      <% elsif order.status == "入金確認" %>
         <td><%= order.status %></td>
-      <% elsif order.status == 2 %>
+      <% elsif order.status == "製作中" %>
         <td><%= order.status %></td>
-      <% elsif order.status == 3 %>
+      <% elsif order.status == "発送準備中" %>
         <td><%= order.status %></td>
-      <% elsif order.status == 4%>
+      <% elsif order.status == "発送済み" %>
         <td><%= order.status %></td>
       <% end %>
     </tr>
@@ -34,4 +34,3 @@
   </table>
 </div>
 
-<%= paginate @orders %>
