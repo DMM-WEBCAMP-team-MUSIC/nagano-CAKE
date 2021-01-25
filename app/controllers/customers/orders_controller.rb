@@ -12,7 +12,7 @@ class Customers::OrdersController < ApplicationController
   end
   
   def confirm
-    @order = Order.new #新しいOrderレコード作成
+    @order = Order.new #Orderモデルから@order作成
     @order.customer_id = current_customer.id #@orderのcustomerカラムに、ログインしているcustomerのidを代入
     @order.delivery_fee = 800 #同上
     @order.total_fee = current_customer.total_payment #total_paymentはcustomerモデルで定義したメソッド。customerが持っているカート内商品の合計額を返す
@@ -43,6 +43,10 @@ class Customers::OrdersController < ApplicationController
   private
   def new_order_params
     params.permit(:payment, :radio_address, :shipping, :new_postal_code, :new_address, :new_name)
+  end
+  
+  def order_params
+    params.require(:order).permit(:delivery_fee, :name, :postal_code, :address, :total_fee, :payment)
   end
   
 end

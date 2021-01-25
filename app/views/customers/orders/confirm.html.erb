@@ -44,4 +44,8 @@
     <p><%= @order.link_address %></p> <!-- link_addressはordersモデル内で定義したメソッド。呼び出すと住所を連結して返す -->
     <p><%= @order.name %></p>
   </div>
+  <div>
+    <%= form_with model: @order url local: true do |f| %>
+    <% end %>
+  </div>
 </div>
