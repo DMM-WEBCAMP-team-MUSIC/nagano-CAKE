@@ -2,6 +2,7 @@
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト（DMMWEBCAMPチーム開発）
 
 ## ER図
+<img width="840" alt="スクリーンショット 2021-01-26 16 56 01" src="https://user-images.githubusercontent.com/73943851/105818654-856e6780-5ffa-11eb-884e-6b3a207f39f3.png">
 
 
 ## 詳細設計
