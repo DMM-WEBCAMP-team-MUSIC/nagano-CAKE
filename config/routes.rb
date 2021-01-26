@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get '/customers/sign_out' => 'devise/sessions#destroy'
 
   namespace :admin do
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      get "orders" => "orders#index"
+    end
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:index, :show, :update]

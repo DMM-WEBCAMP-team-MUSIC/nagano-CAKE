@@ -18,10 +18,10 @@
         <td><%= customer.id %></td>
         <td><%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %></td>
         <td><%= customer.email %></td>
-        <% if customer.status == true %>
-          <td class= "text-danger"><%= customer.status %></td>
-        <% else customer.status == false %>
-          <td><%= customer.status %></td>
+        <% if customer.status %>
+          <td class= "text-danger">有効</td>
+        <% else %>
+          <td>無効</td>
         <% end %>
       </tr>
     <% end %>
