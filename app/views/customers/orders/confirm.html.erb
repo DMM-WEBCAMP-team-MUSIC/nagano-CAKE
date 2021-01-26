@@ -18,9 +18,9 @@
         <% current_customer.cart_items.each do |cart_item| %>
           <tr>
             <td><%= cart_item.item.name %></td>
-            <td><%= cart_item.item.price * 1.1 %></td>
+            <td><%= (cart_item.item.price * 1.1).floor %>円</td>
             <td><%= cart_item.quantity %></td>
-            <td><%= cart_item.quantity * cart_item.item.price * 1.1 %></td>
+            <td><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %>円</td>
           </tr>
         <% end %>
       </table>
@@ -33,15 +33,15 @@
       <table class="h5">
         <tr>
           <th>送料</th>
-          <td class="pl-5"><%= @order.delivery_fee %></td>
+          <td class="pl-5"><%= @order.delivery_fee %>円</td>
         </tr>
         <tr>
           <th>商品合計</th>
-          <td class="pl-5"><%= @order.customer.total_payment %></td>
+          <td class="pl-5"><%= @order.customer.total_payment %>円</td>
         </tr>
         <tr>
           <th>請求金額</th>
-          <td class="pl-5"><%= @order.delivery_fee + @order.customer.total_payment %></td>
+          <td class="pl-5"><%= @order.delivery_fee + @order.customer.total_payment %>円</td>
         </tr>
       </table>
     </div>

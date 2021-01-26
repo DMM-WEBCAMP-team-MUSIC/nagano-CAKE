@@ -16,7 +16,7 @@
                   <h5>注文日</h5>
                 </div>
                 <div class="col-6">
-                  <h5><%= @order.created_at %></h5>
+                  <h5><%= @order.created_at.strftime('%Y/%m/%d') %></h5>
                 </div>
             </div>
             <div class="row">
@@ -64,6 +64,7 @@
               <th>制作ステータス</th>
               <th></th>
             </tr>
+            <% @sum = 0 %>
             <% @ordered_items.each do |order| %>
             <tr>
           </thead>
@@ -78,6 +79,7 @@
               <td><%= f.submit "更新" %></td>
               <% end %>
             </tr>
+            <% @sum += ((order.price*1.1).floor*order.quantity) %>
             <% end %>
           </tbody>
         </table>
@@ -88,10 +90,9 @@
         <h5>請求金額合計</h5>
       </div>
       <div class="col-2 pt-4 pl-2 text-light">
-        <h5><%= @order.total_fee.to_s(:delimited) %>円</h5>
+        <h5><%= @sum.to_s(:delimited) %>円</h5>
         <h5><%= @order.delivery_fee %>円</h5>
-        <h5>  <%= (@order.total_fee + @order.delivery_fee).to_s(:delimited) %>円</h5>
+        <h5><%= (@sum + @order.delivery_fee).to_s(:delimited) %>円</h5>
       </div>
   </div>
 </div>
-

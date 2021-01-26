@@ -24,11 +24,4 @@ class Customer < ApplicationRecord
     return total #こう書くことでcustomer.totalpaymentを呼ぶと、結果的に上の処理がされたtotalが呼べる
   end
   
-  def status_ja
-    if self.status
-      return "有効"
-    else
-      return "無効"
-    end
-  end
 end
