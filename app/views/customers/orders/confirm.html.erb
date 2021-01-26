@@ -33,15 +33,15 @@
       <table class="h5">
         <tr>
           <th>送料</th>
-          <td class="pl-5"><%= @order.delivery_fee %></td>
+          <td class="pl-5"><%= @order.delivery_fee %>円</td>
         </tr>
         <tr>
           <th>商品合計</th>
-          <td class="pl-5"><%= @order.customer.total_payment %></td>
+          <td class="pl-5"><%= @order.customer.total_payment %>円</td>
         </tr>
         <tr>
           <th>請求金額</th>
-          <td class="pl-5"><%= @order.delivery_fee + @order.customer.total_payment %></td>
+          <td class="pl-5"><%= @order.delivery_fee + @order.customer.total_payment %>円</td>
         </tr>
       </table>
     </div>
