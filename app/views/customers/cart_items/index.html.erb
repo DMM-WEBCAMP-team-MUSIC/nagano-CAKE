@@ -28,7 +28,7 @@
                      <%= cart_item.item.name %>
                  </td>
                  <td width="20%">
-                     <%= (cart_item.item.price*1.1).floor.to_s(:delimited) %>
+                     <%= (cart_item.item.price*1.1).floor.to_s(:delimited) %>円
                  </td>
                  <td width="15%">
                      <%= form_with model:cart_item, local: true do |f| %>
@@ -37,7 +37,7 @@
                      <% end %>
                  </td>
                  <td width="10%">
-                     <%= ((cart_item.item.price*1.1).floor*cart_item.quantity).to_s(:delimited) %>
+                     <%= ((cart_item.item.price*1.1).floor*cart_item.quantity).to_s(:delimited) %>円
         
                  </td>
                  <td width="45%">
@@ -57,7 +57,7 @@
               <table class="table table-bordered bg-light">
                <tr>
                  <td class="table-secondary">合計金額</td>
-                 <td><%= @sum.to_s(:delimited) %></td>
+                 <td><%= @sum.to_s(:delimited) %>円</td>
                </tr>
               </table>
         　　</div>

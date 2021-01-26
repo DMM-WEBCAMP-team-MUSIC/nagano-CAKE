@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @orders.each do |order| %>
+      <% @orders.reverse_each do |order| %>
       <tr class="bg-light">
         <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
         <td><%= order.link_address %>
@@ -35,6 +35,5 @@
       <% end %>
     </tbody>
   </table>
-  </div>
+ </div>
 </div>
-
