@@ -1,4 +1,6 @@
 class Customers::ShippingsController < ApplicationController
+  before_action :authenticate_customer!
+  
   def index
     @shippings = current_customer.shippings
     @shipping = Shipping.new
