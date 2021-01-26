@@ -15,6 +15,10 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :email, presence: true
+  
+  def active_for_authentication?
+    super && self.status #ここでstatusがfalseだとログインできない
+  end
 
   def total_payment
     total = 0 #totalは最初は0円
