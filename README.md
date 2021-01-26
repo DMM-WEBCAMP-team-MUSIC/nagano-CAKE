@@ -17,8 +17,11 @@
 Ruby on Rails
 
 ## インストール
+$ git clone https://github.com/DMM-WEBCAMP-team-MUSIC/nagano-CAKE
+$ cd nagano-CAKE
 
 ## 推薦環境
+Ruby 2.5 以降 Rails 5.2 以降
 
 ## 開発者
 ### チーム名
