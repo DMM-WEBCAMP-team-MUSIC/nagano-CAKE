@@ -8,17 +8,24 @@
         <div class="card-body">
           <h3 class="card-title text-center"><%= @item.name %></h3>
           <p><%= @item.info %></p>
-          <%= form_with model:@cart_item, local: true do |f| %>
-            <strong><%= (@item.price * 1.1).floor %>円 (税込)</strong>
-            <div class="text-right">
-              個数
-              <%= f.number_field :quantity, min:1, max:10, value: 1 %><span>個</span>
-              <%= f.hidden_field :item_id, value: @item.id %>
-            </div><br />
-            <div class="text-right">
-              <%= f.submit "カートに入れる", class: "btn btn-outline-info" %>
+          <% if @item.status %>
+            <%= form_with model:@cart_item, local: true do |f| %>
+              <strong><%= (@item.price * 1.1).floor %>円 (税込)</strong>
+              <div class="text-right">
+                個数
+                <%= f.number_field :quantity, min:1, max:10, value: 1 %><span>個</span>
+                <%= f.hidden_field :item_id, value: @item.id %>
+              </div><br />
+              <div class="text-right">
+                <%= f.submit "カートに入れる", class: "btn btn-outline-info" %>
+              </div>
+            <% end %>
+          <% else %>
+            <div>
+              <p>売り切れだよ</p>
             </div>
           <% end %>
+
         </div>
       </div>
     </div>
