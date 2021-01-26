@@ -17,7 +17,7 @@
   <div class="col-sm-1 "></div>
   <% @items.each do |item| %>
     <div class="card mr-5" style="width: 15rem">
-      <%= attachment_image_tag(item, :image, :fill, 200, 200,) %>
+      <%= link_to attachment_image_tag(item, :image, :fill, 200, 200,), item_path(item) %>
       <div class="card-body">
         <p class="card-title"><%= item.name %></p>
         ¥<%= item.price.to_s(:delimited) %>
