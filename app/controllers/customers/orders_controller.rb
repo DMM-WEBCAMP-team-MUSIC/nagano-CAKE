@@ -42,24 +42,31 @@ class Customers::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    order.customer_id = current_customer.id
-    if order.save
-    end
-
-    if current_customer.cart_items.each do |cart_item|
-        ordered_item = OrderedItem.new
-        ordered_item.item_id = cart_item.item_id
-        ordered_item.order_id = order.id
-        ordered_item.quantity = cart_item.quantity
-        ordered_item.price = cart_item.item.price
-        ordered_item.save
+    if current_customer.cart_items.count > 0
+      order = Order.new(order_params)
+      order.customer_id = current_customer.id
+      if order.save
       end
+  
+      if current_customer.cart_items.each do |cart_item|
+          ordered_item = OrderedItem.new
+          ordered_item.item_id = cart_item.item_id
+          ordered_item.order_id = order.id
+          ordered_item.quantity = cart_item.quantity
+          ordered_item.price = cart_item.item.price
+          ordered_item.save
+        end
+      end
+  
+      current_customer.cart_items.destroy_all
+  
+      redirect_to orders_finish_path
+    else
+      redirect_to cart_items_path
     end
+    
+    
 
-    current_customer.cart_items.destroy_all
-
-    redirect_to orders_finish_path
   end
 
   def finish
