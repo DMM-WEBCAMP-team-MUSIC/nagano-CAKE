@@ -17,7 +17,7 @@ class Customer < ApplicationRecord
   validates :email, presence: true
   
   def active_for_authentication?
-    super && self.status
+    super && self.status #ここでstatusがfalseだとログインできない
   end
   
   def total_payment
