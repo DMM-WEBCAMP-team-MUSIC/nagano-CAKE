@@ -15,7 +15,7 @@
       <div class="card-body">
         <div class="col-3"></div>
         <div class="card-image">
-          <%= link_to attachment_image_tag(item, :image, :fill, 200, 200, fallback: "no_image.jpg"), item_path(item)  %>
+          <%= link_to attachment_image_tag(item, :image, :fill, 200, 200, fallback: "no_image.jpg", :size => "200x200"), item_path(item)  %>
         </div>
         <div class="col text-light">
           <p><%= item.name %></p>

@@ -1,59 +1,85 @@
 <div class="container">
-  <div>
-    <h1>注文情報確認</h1>
-  </div>
   <div class="row">
-    <table class="table col-6">
-      <tr>
-        <th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-      </tr>
-      <% current_customer.cart_items.each do |cart_item| %>
-        <tr>
-          <td><%= cart_item.item.name %></td>
-          <td><%= cart_item.item.price * 1.1 %></td>
-          <td><%= cart_item.quantity %></td>
-          <td><%= cart_item.quantity * cart_item.item.price * 1.1 %></td>
-        </tr>
-      <% end %>
-    </table class="table col-4">
-    <table>
-      <tr>
-        <th>送料</th>
-        <td><%= @order.delivery_fee %></td>
-      </tr>
-      <tr>
-        <th>商品合計</th>
-        <td><%= @order.customer.total_payment %></td>
-      </tr>
-      <tr>
-        <th>請求金額</th>
-        <td><%= @order.delivery_fee + @order.customer.total_payment %></td>
-      </tr>
-    </table>
-    
-  </div>
-  <div>
-    <h4>支払方法</h4>
-    <p><%= @order.payment %></p>
-  </div>
-  <div>
-    <h4>お届け先</h4>
-    <p><%= @order.link_address %></p> <!-- link_addressはordersモデル内で定義したメソッド。呼び出すと住所を連結して返す -->
-    <p><%= @order.name %></p>
-  </div>
-  <div>
-    <%= form_with model: @new_order, url: orders_path, method: :post, local: true do |f| %>
-      <%= f.hidden_field :delivery_fee, value: @order.delivery_fee %>
-      <%= f.hidden_field :name, value: @order.name %>
-      <%= f.hidden_field :postal_code, value: @order.postal_code %>
-      <%= f.hidden_field :address, value: @order.address %>
-      <%= f.hidden_field :total_fee, value: @order.total_fee %>
-      <%= f.hidden_field :payment, value: @order.payment %>
-      <%= f.submit %>
-    <% end %>
-    <!-- hidden_fieldで全部の必要な値が@new_orderに入るようにしています。ビュー上ではボタンしか表示されません -->
+    <div class="col-3 pt-4">
+      <h4>注文情報確認</h4>
+    </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-7 m-0 p-0 bg-light">
+      <table class="table">
+        <tr class=" text-light bg-secondary">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+        <% current_customer.cart_items.each do |cart_item| %>
+          <tr>
+            <td><%= cart_item.item.name %></td>
+            <td><%= cart_item.item.price * 1.1 %></td>
+            <td><%= cart_item.quantity %></td>
+            <td><%= cart_item.quantity * cart_item.item.price * 1.1 %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-4 text-light ">
+      <table class="h5">
+        <tr>
+          <th>送料</th>
+          <td class="pl-5"><%= @order.delivery_fee %></td>
+        </tr>
+        <tr>
+          <th>商品合計</th>
+          <td class="pl-5"><%= @order.customer.total_payment %></td>
+        </tr>
+        <tr>
+          <th>請求金額</th>
+          <td class="pl-5"><%= @order.delivery_fee + @order.customer.total_payment %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row pt-4">
+    <div class="col-2 text-light">
+      <h5>支払方法</h5>
+    </div>
+    <div class="col-2 text-center text-light">
+      <h5><%= @order.payment %></h5>
+    </div>
+  </div>
+  <div class="row text-light">
+    <div class="col-2">
+      <h5>お届け先</h5>
+    </div>
+    <div class="col-６">
+      <h5><%= @order.link_address %></h5> <!-- link_addressはordersモデル内で定義したメソッド。呼び出すと住所を連結して返す -->
+    </div>
+    <div class="col-2 ml-5">
+      <h5><%= @order.name %></h5>
+    </div>
+    <div class="col-2">
+      <%= form_with model: @new_order, url: orders_path, method: :post, local: true do |f| %>
+        <%= f.hidden_field :delivery_fee, value: @order.delivery_fee %>
+        <%= f.hidden_field :name, value: @order.name %>
+        <%= f.hidden_field :postal_code, value: @order.postal_code %>
+        <%= f.hidden_field :address, value: @order.address %>
+        <%= f.hidden_field :total_fee, value: @order.total_fee %>
+        <%= f.hidden_field :payment, value: @order.payment %>
+        <%= f.submit "注文する", class: "alert alert-warning" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+    
+    <!-- hidden_fieldで全部の必要な値が@new_orderに入るようにしています。ビュー上ではボタンしか表示されません -->
+
+
+
