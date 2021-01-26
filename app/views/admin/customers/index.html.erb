@@ -1,7 +1,13 @@
-<div>
-  <h1>会員一覧</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-2 pt-5">
+      <h4>会員一覧</h4>
+    </div>
+  </div>
+</div>
+<div class="container p-0 mt-5 bg-light">
   <table class="table">
-    <tr>
+    <tr class="text-light bg-secondary">
       <th>会員ID</th>
       <th>氏名</th>
       <th>メールアドレス</th>
@@ -10,10 +16,21 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.id %></td>
-        <td><%= customer.family_name %><%= customer.first_name %></td>
+        <td><%= link_to customer.family_name + customer.first_name, admin_customer_path(customer) %></td>
         <td><%= customer.email %></td>
-        <td><%= customer.status %></td>
+        <% if customer.status %>
+          <td class= "text-danger">有効</td>
+        <% else %>
+          <td>退会</td>
+        <% end %>
       </tr>
     <% end %>
   </table>
 </div>
+<div class="row justify-content-right pb-5">
+  <div class="col">
+    <strong class="h3"><%= paginate @customers %></strong>
+  </div>
+</div>
+
+

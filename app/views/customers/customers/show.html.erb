@@ -1,2 +1,89 @@
-<h1>Customers::Customers#show</h1>
-<p>Find me in app/views/customers/customers/show.html.erb</p>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-2">
+      <h4>マイページ</h4>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row pt-2">
+    <div class="col-4 text-light text-right">
+      <h1>登録情報</h1>
+    </div>
+  </div>
+</div>
+<div class="container text-light">
+  <ins><div class="row"></ins>
+    <div class="col-3">
+      <h5>氏名</h5>
+    </div>
+    <div class="col-6">
+      <h5><%= @customer.family_name %><%= @customer.first_name %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5>カナ</h5>
+    </div>
+    <div class="col-6">
+      <h5><%= @customer.family_name_kana %><%= @customer.first_name_kana %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5>郵便番号</h5>
+    </div>
+    <div class="col-6">
+      <h5><%= @customer.postal_code %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5>住所</h5>
+    </div>
+    <div class="col-6">
+      <h5><%= @customer.address %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5>電話番号</h5>
+    </div>
+    <div class="col-6">
+      <h5><%= @customer.phone_number %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5>メールアドレス</h5>
+    </div>
+    <div class="col-6">
+      <h5><%= @customer.email %></h5>
+    </div>
+  </div><br />
+  <div class="row">
+    <div class="col-3">
+      <h5>配送先</h5>
+    </div>
+    <div class="col-6">
+      <%= link_to("/shippings") do %>
+        <button class="btn btn-info">配送先一覧</button>
+      <% end %>
+    </div>
+  </div><br />
+  <div class="row">
+    <div class="col-3">
+      <h5>注文履歴</h5>
+    </div>
+    <div class="col-6">
+      <%= link_to("/orders") do %>
+        <button class="btn btn-info">注文履歴一覧</button>
+      <% end %>
+    </div>
+    <div class="col-3 text-center">
+      <%= link_to edit_customers_path do %>
+        <button class="alert alert-warning btn-lg">編集する</button>
+      <% end %>
+    </div>
+  </div>
+</div>

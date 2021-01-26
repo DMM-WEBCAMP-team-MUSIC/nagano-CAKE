@@ -1,2 +1,37 @@
-<h1>Customers::Items#show</h1>
-<p>Find me in app/views/customers/items/show.html.erb</p>
+<div class="container mt-5 mx-auto">
+  <div class="card mb-3" style="max-width: 900px">
+    <div class="row p-5 no-gutters">
+      <div class="col-md-4">
+        <img class="card-img"><%= attachment_image_tag(@item, :image, :fill, 300, 300, fallback: "no_image.jpg", :size => "300x300") %>
+      </div>
+      <div class="col-md-8 pl-5">
+        <div class="card-body">
+          <h3 class="card-title text-center"><%= @item.name %></h3>
+          <p><%= @item.info %></p>
+          <% unless @item.status %>
+            <div>
+              <strong><%= (@item.price * 1.1).floor %>円 (税込)</strong>
+              <p>売り切れだよ</p>
+            </div>
+          <% else %>
+            <% if customer_signed_in? %>
+              <%= form_with model:@cart_item, local: true do |f| %>
+                <strong><%= (@item.price * 1.1).floor %>円 (税込)</strong>
+                <div class="text-right">
+                  個数
+                  <%= f.number_field :quantity, min:1, max:10, value: 1 %><span>個</span>
+                  <%= f.hidden_field :item_id, value: @item.id %>
+                </div><br />
+                <div class="text-right">
+                  <%= f.submit "カートに入れる", class: "btn btn-outline-info" %>
+                </div>
+              <% end %>
+            <% else %>
+              <strong><%= (@item.price * 1.1).floor %>円 (税込)</strong>
+            <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+</div>

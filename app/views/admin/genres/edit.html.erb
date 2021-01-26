@@ -1,7 +1,15 @@
-<div>
-  <h1>ジャンル編集</h1>
-  <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
-    <%= f.text_field :name, value: @genre.name %>
-    <%= f.submit "submit" %>
-  <% end %>
+<div class="container my-3 pt-5">
+  <div class="row">
+    <div class="col-sm-2">
+      <h4>ジャンル編集</h4>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-md-center">
+  <div class="col-sm-6">
+    <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
+    <%= f.text_field :name, value: @genre.name, size: "40x20" %>
+      <%= f.submit "変更" %>
+    <% end %>
+  </div>
 </div>

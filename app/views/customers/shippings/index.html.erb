@@ -1,2 +1,72 @@
-<h1>Customers::Shippings#index</h1>
-<p>Find me in app/views/customers/shippings/index.html.erb</p>
+<div class="container">
+  <duv class="row">
+    <div class="col-3 pt-5">
+      <h4>配送先登録/一覧</h4>
+    </div>
+  </duv>
+</div>
+<div class="container pt-5 text-light">
+  <%= form_with model: @shipping, local: true do |f| %>
+    <div class="row">
+      <div class="col-3">
+        <h5><%= f.label :postal_code, "郵便番号（ハイフンなし）" %></h5>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :postal_code, class: "form-group-sm" %>
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col-3">
+        <h5><%= f.label :address, "住所" %></h5>
+      </div>
+      <div class="col-7">
+        <%= f.text_field :address, class: "form-group-sm", :size => "50x20" %>
+      </div>
+    </div>
+    <div class="row pt-2 mb-5">
+      <div class="col-3">
+        <h5><%= f.label :name, "宛名" %></h5>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :name %>
+      </div>
+      <div class="col-3 text-right">
+        <%= f.submit "新規登録", class: "alert alert-secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="container p-0 bg-light">
+  <table class="table">
+    <thead class="bg-secondary">
+      <tr class="text-light">
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shippings.each do |shipping| %>
+      <tr>
+        <td>
+          <%= shipping.postal_code %>
+        </td>
+        <td>
+          <%= shipping.address %>
+        </td>
+        <td>
+          <%= shipping.name %>
+        </td>
+        <td class="text-right">
+          <%= link_to "編集する", edit_shipping_path(shipping), class: "btn btn-outline-success" %>
+        </td>
+        <td>
+          <%= link_to "削除する", shipping_path(shipping),class: "btn btn-outline-danger", method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

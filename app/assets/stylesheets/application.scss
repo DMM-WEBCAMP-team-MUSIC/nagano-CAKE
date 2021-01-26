@@ -14,3 +14,134 @@
  *= require_self
  */
 @import "bootstrap";
+
+u {
+	color: white;
+	font-family: impact;
+}
+
+h4 {
+	color: #C2EEFF;
+	text-align: center;
+	font-family: Hiragino Mincho Pro;
+}
+
+
+.about-image {
+	height: 400px;
+	background-image: url(CAKE4.jpg);
+	background-repeat: no-repeat;
+
+}
+.about-image p {
+	font-size: 25px;
+	padding-top: 20px;
+	color: white;
+	font-family: Hiragino Mincho Pro;
+}
+
+body {
+	background-image: url(森2.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	display: block;
+  	height: auto;
+  	max-width: 100%;
+	/*background-attachment: fixed;　スクロールしても画像を固定*/
+}
+
+.edit-image {
+	background-image: url(新聞.jpg);
+	font-family: Hiragino Mincho Pro;
+}
+.customer-image {
+	background-image: url(新聞.jpg);
+	font-family: Hiragino Mincho Pro;
+}
+
+.out-image {
+	background-image: url(CAKE3crush.jpg);
+	background-repeat: no-repeat;
+	font-family: Hiragino Mincho Pro;
+}
+
+.navbar-brand {
+	background-image: url(header.jpg);
+	border-radius: 50%; /*画像を丸くsuru*/
+	color: white;
+	font-family: 'Sacramento', cursive;
+	font-size: 30px;
+}
+
+.navbar-brand:hover {
+  opacity: .5;
+}
+
+.image1 {
+  background-image: url(image1.jpg);
+  font-size: 60px;
+  color: maroon;
+  font-family: "HanziPen sc";
+  padding-top: 80px;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: all 1s ease-in-out;
+}
+
+.image2 {
+  background-image: url(image2.jpg);
+  font-size: 35px;
+  color: maroon;
+  font-family: "HanziPen sc";
+  padding-top: 100px;
+  transform: translateY(40px);
+  transition: all 1s ease-in-out;
+  object-fit: contain;
+}
+
+.image3 {
+  background-image: url(image3.jpg);
+  font-size: 35px;
+  color: maroon;
+  font-family: "HanziPen sc";
+  padding-top: 80px;
+  transform: translateY(40px);
+  transition: all 1s ease-in-out;
+  object-fit: contain;
+}
+
+#container{
+  height: 300px;
+}
+
+.image {
+	position:relative;
+	border-radius: 50%;
+}
+
+.finish-image {
+  background-image: url(coffee.jpg);
+  height: 500px;
+  background-repeat: no-repeat;
+}
+
+.finish-image h1 {
+  padding-top: 100px;
+  font-size: 55px;
+  color: #FF8856;
+  font-family: "HanziPen sc";
+  text-shadow: 3px 3px 4px red;
+}
+
+.pagination {
+  margin-left: 400px;
+  padding-left: 20px;
+  color: red;
+
+}
+
+.pagination a {
+  padding-left: 20px;
+  color: white;
+}
+

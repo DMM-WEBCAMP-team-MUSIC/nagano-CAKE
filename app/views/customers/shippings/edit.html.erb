@@ -1,2 +1,38 @@
-<h1>Customers::Shippings#edit</h1>
-<p>Find me in app/views/customers/shippings/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-3 pt-5">
+      <h4>配送先編集</h4>
+    </div>
+  </div>
+</div>
+<div class="container text-light pt-5">
+  <%= form_with model: @shipping, local: true do |f| %>
+    <div class="row">
+      <div class="col-3">
+        <h5><%= f.label :postal_code, "郵便番号（ハイフンなし）" %></h5>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :postal_code,class: "form-control-sm" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <h5><%= f.label :address, "住所" %></h5>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :address,class: "form-control-sm", :size => "50x20" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <h5><%= f.label :name, "宛名" %></h5>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :name %>
+      </div>
+      <div class="col-3 text-right">
+        <%= f.submit "変更内容を保存",class: "btn btn-outline-warning" %>
+      </div>
+    </div>
+  <% end %>
+</div>
