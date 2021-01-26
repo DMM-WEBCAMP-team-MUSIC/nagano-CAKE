@@ -1,23 +1,21 @@
 # ながのケーキ　ECサイト
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト（DMMWEBCAMPチーム開発）
 
+## ER図
 
-Things you may want to cover:
+## 詳細設計
+* 管理側/顧客側
 
-* Ruby version
+##開発環境
+Ruby on Rails
 
-* System dependencies
+##インストール
 
-* Configuration
+##推薦環境
 
-* Database creation
+## 開発者
+### 開発チーム名
+team_MUSIC
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##作成期間
+2021/1/14 ~ 2021/1/27
