@@ -2,7 +2,7 @@
    <div class="low">
      <h4>注文履歴詳細</h4>
    </div>
-        <div class="container text-light">
+        <div class="container mt-5 text-light">
             <div class="row">
                 <div class="col-3">
                   <h5>購入者</h5>
@@ -51,11 +51,12 @@
         </div>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-8">
-        <table class="table-bordered text-light">
-            <tr class="">
+    <div class="col-6">
+        <table class="table">
+          <thead>
+            <tr class="text-light bg-secondary">
               <th>商品名</th>
               <th>単価(税込)</th>
               <th>数量</th>
@@ -66,6 +67,9 @@
             <% @sum = 0 %>
             <% @ordered_items.each do |order| %>
             <tr>
+          </thead>
+          <tbody>
+            <tr class="bg-light">
               <td><%= order.item.name %></td>
               <td><%= (order.price*1.1).floor.to_s(:delimited) %></td>
               <td><%= order.quantity %></td>
@@ -77,23 +81,18 @@
             </tr>
             <% @sum += ((order.price*1.1).floor*order.quantity) %>
             <% end %>
+          </tbody>
         </table>
     </div>
+      <div class="col-2 pt-4 text-light" >
+        <h5>商品合計</h5>
+        <h5>送料</h5>
+        <h5>請求金額合計</h5>
+      </div>
+      <div class="col-2 pt-4 pl-2 text-light">
+        <h5><%= @sum.to_s(:delimited) %>円</h5>
+        <h5><%= @order.delivery_fee %>円</h5>
+        <h5><%= (@sum + @order.delivery_fee).to_s(:delimited) %>円</h5>
+      </div>
   </div>
 </div>
-<table>
-    <tr>
-       <th>商品合計</th>
-       <td><%= @sum.to_s(:delimited) %></td>
-    </tr>
-    <tr>
-      <th>送料</th>
-      <td><%= @order.delivery_fee %></td>
-    </tr>
-    <tr>
-      <th>請求金額合計</th>
-      <td><%= (@sum + @order.delivery_fee).to_s(:delimited) %></td>
-    </tr>
-</table>
-
-
