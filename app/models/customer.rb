@@ -19,7 +19,7 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && self.status #ここでstatusがfalseだとログインできない
   end
-  
+
   def total_payment
     total = 0 #totalは最初は0円
     self.cart_items.each do |cart_item| #全商品繰り返し
@@ -27,5 +27,5 @@ class Customer < ApplicationRecord
     end
     return total #こう書くことでcustomer.totalpaymentを呼ぶと、結果的に上の処理がされたtotalが呼べる
   end
-  
+
 end
