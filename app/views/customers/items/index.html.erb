@@ -8,7 +8,6 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="row">
     <% @items.each do |item| %>
@@ -23,6 +22,11 @@
         </div>
       </div>
     <% end %>
-    <%= paginate @items %>
+  </div>
+  <div class="row justify-content-right pb-5">
+    <div class="col">
+      <strong class="h3"><%= paginate @items %></strong>
+    </div>
   </div>
 </div>
+
