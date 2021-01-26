@@ -8,7 +8,8 @@
   <tr>
     <th>配送先</th>
     <td>
-      <%= @order.link_address %><br>
+      〒<%= @order.postal_code %><br>
+      <%= @order.address %><br>
       <%= @order.name %>
     </td>
   </tr>
