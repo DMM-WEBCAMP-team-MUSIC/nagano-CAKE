@@ -2,7 +2,7 @@
   <div class="card mb-3" style="max-width: 900px">
     <div class="row p-5 no-gutters">
       <div class="col-md-4">
-        <img class="card-img"><%= attachment_image_tag(@item, :image, :fill, 300, 300, fallback: "no_image.jpg") %>
+        <img class="card-img"><%= attachment_image_tag(@item, :image, :fill, 300, 300, fallback: "no_image.jpg", :size => "300x300") %>
       </div>
       <div class="col-md-8 pl-5">
         <div class="card-body">
@@ -20,6 +20,6 @@
             </div>
           <% end %>
         </div>
+      </div>
     </div>
-  </div>
 </div>
