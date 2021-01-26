@@ -1,7 +1,6 @@
-# README
+# ながのケーキ　ECサイト
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト（DMMWEBCAMPチーム開発
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
 Things you may want to cover:
 
