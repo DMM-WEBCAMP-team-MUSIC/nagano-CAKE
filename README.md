@@ -6,7 +6,12 @@
 
 
 ## 詳細設計
-管理側/顧客側
+* 管理側
+<img width="949" alt="スクリーンショット 2021-01-26 17 11 41" src="https://user-images.githubusercontent.com/73943851/105819012-f44bc080-5ffa-11eb-9619-968bac3d91d2.png">
+
+* 顧客側
+<img width="1087" alt="スクリーンショット 2021-01-26 17 02 13" src="https://user-images.githubusercontent.com/73943851/105819151-2b21d680-5ffb-11eb-8104-1c9ee86389f9.png">
+
 
 ## 開発環境
 Ruby on Rails
