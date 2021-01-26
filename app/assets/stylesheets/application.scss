@@ -121,9 +121,16 @@ body {
 
 .finish-image {
   background-image: url(coffee.jpg);
-  font-size: 35px;
-  color: maroon;
-  height: 300px;
+  height: 500px;
   background-repeat: no-repeat;
-	font-family: Hiragino Mincho Pro;
 }
+
+.finish-image h1 {
+  padding-top: 100px;
+  font-size: 55px;
+  color: #FF8856;
+  font-family: "HanziPen sc";
+  text-shadow: 3px 3px 4px red;
+}
+
+
