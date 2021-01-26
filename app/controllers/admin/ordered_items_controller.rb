@@ -6,13 +6,13 @@ class Admin::OrderedItemsController < ApplicationController
       if @ordered_item.status == "製作中"
         @ordered_item.order.update(status: "製作中")
       elsif @ordered_item.status == "製作完了"
-        flge = true
+        flag = true
         @ordered_item.order.ordered_items.each do |ordered_item|
           unless ordered_item.status == "製作完了"
-            flge = false
+            flag = false
           end
         end
-        if flge
+        if flag
           @ordered_item.order.update(status: "発送準備中")
         end
       end

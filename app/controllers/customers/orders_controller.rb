@@ -1,5 +1,5 @@
 class Customers::OrdersController < ApplicationController
-  
+
   def index
     @orders = current_customer.orders
   end
@@ -9,11 +9,11 @@ class Customers::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @cart_items = current_customer.cart_items
   end
-  
+
   def new
     @shippings = Shipping.where(customer_id: current_customer) #shippingテーブルからcustomer_idがcurrent_customerと一致するものをすべて探して返す
   end
-  
+
   def confirm
     if !new_order_params[:payment]
       redirect_to new_order_path
@@ -39,13 +39,13 @@ class Customers::OrdersController < ApplicationController
       @order.address = new_order_params[:new_address] #同上
     end
   end
-  
+
   def create
     order = Order.new(order_params)
     order.customer_id = current_customer.id
     if order.save
     end
-    
+
     if current_customer.cart_items.each do |cart_item|
         ordered_item = OrderedItem.new
         ordered_item.item_id = cart_item.item_id
@@ -55,22 +55,22 @@ class Customers::OrdersController < ApplicationController
         ordered_item.save
       end
     end
-    
+
     current_customer.cart_items.destroy_all
-    
+
     redirect_to orders_finish_path
   end
-  
+
   def finish
   end
-  
+
   private
   def new_order_params
     params.permit(:payment, :radio_address, :shipping, :new_postal_code, :new_address, :new_name)
   end
-  
+
   def order_params
     params.require(:order).permit(:delivery_fee, :name, :postal_code, :address, :total_fee, :payment)
   end
-  
+
 end
