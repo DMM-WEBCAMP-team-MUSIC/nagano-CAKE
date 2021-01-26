@@ -1,9 +1,11 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     if params[:customer_id]
       @orders = Order.where(customer_id: params[:customer_id]).page(params[:page]).per(10)
     else
-      @orders = Order.all.page(params[:page]).per(10)
+      @orders = Order.page(params[:page]).per(10)
     end
   end
 
