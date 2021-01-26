@@ -25,7 +25,7 @@ class Customer < ApplicationRecord
   end
   
   def status_ja
-    if self.status == true
+    if self.status
       return "有効"
     else
       return "無効"
